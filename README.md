@@ -2,7 +2,7 @@
 
 ### *CURSO PYTHON:* CRIE A SUA PRIMEIRA APLICAÇÃO
 
-### O projeto consiste na criação de uma aplicação para cadastro de restaurantes.
+#### O projeto consiste na criação de uma aplicação para cadastro, atualização e edição de restaurantes.
 _Nesse projeto foram implementados os seguintes conhecimentos:_
 
 * Tipos de dados;

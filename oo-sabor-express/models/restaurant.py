@@ -1,3 +1,4 @@
+from itertools import count
 from models.evaluation import Evaluation
 
 # Classe restaurante criada para definir como serão os restaurantes.
@@ -26,13 +27,13 @@ class Restaurant():
     # Função para listar todos os restaurantes
     @classmethod #Define o metodo que acessa a classe
     def restaurant_list(cls):
-        print("-"*65)
-        print(f"|{'Nome'.ljust(20)} | {'Categoria'.ljust(30)} | {'Status'.ljust(7)}|")
-        print("-"*65)
+        print("-"*111)
+        print(f"|{'Nome'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliações'.ljust(25)} | {'Status'.ljust(25)}|")
+        print("-"*111)
         
         for index in cls.restaurant:
-            print(f'|{index._name.ljust(20)} | {index._category.ljust(30)} | {index.active:^7}|')
-        print("-"*65)
+            print(f'|{index._name.ljust(25)} | {index._category.ljust(25)} | {str(index.evaluations_average).ljust(25)} | {index.active.center(25)}|')
+        print("-"*111)
     
     #Metodo que define como será apresentada a propriedade 'active'
     @property
@@ -47,6 +48,19 @@ class Restaurant():
     def recive_evaluations(self, evaluator, assessment):
         evaluation = Evaluation(evaluator, assessment)
         self._evaluation.append(evaluation)
+    
+    @property
+    def evaluations_average(self):
+        if not self._evaluation:
+            return 0
+        
+        evaluations_sum = sum(evaluation._assessment for evaluation in self._evaluation)
+        evaluations_count = len(self._evaluation)
+
+        average = round(evaluations_sum / evaluations_count, 1)
+        return average
+      
+
 
         
 # #Objetos restaurantes sendo criados

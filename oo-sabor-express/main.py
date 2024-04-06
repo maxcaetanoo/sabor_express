@@ -1,10 +1,9 @@
 from models.restaurant import Restaurant
 
 restaurante_comedoria = Restaurant('Comedoria', 'Restaurante de massas')
-restaurante_pan_pop = Restaurant('Pan Pop', 'Restaurante de sanduiches')
-restaurante_sushi_sing = Restaurant('sushi sing', 'Restaurante de sushi')
-
-restaurante_sushi_sing.alternate_status()
+restaurante_comedoria.recive_evaluations('Max', 10)
+restaurante_comedoria.recive_evaluations('Mile', 8)
+restaurante_comedoria.recive_evaluations('Gui', 5)
 
 def main():
     Restaurant.restaurant_list()

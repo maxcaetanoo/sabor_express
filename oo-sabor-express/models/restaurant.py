@@ -1,3 +1,5 @@
+from models.evaluation import Evaluation
+
 # Classe restaurante criada para definir como serão os restaurantes.
 class Restaurant():
     # lista que irá receber todos os restaurantes
@@ -8,6 +10,7 @@ class Restaurant():
         self._name = name.title()
         self._category = category.title()#capitalize()
         self._active = False
+        self._evaluation = []
 
         #Diferenças entre title e capitalize:
         #title() = todas as primeiras letras maiusculas ex: Casa Grande
@@ -39,6 +42,12 @@ class Restaurant():
     #Metodo para alternar o status de um objeto
     def alternate_status(self):
         self._active = not self._active
+    
+    #Metodo para receber avaliações
+    def recive_evaluations(self, evaluator, assessment):
+        evaluation = Evaluation(evaluator, assessment)
+        self._evaluation.append(evaluation)
+
         
 # #Objetos restaurantes sendo criados
 # restaurante_comedoria = Restaurant('Comedoria', 'Restaurante de massas')
